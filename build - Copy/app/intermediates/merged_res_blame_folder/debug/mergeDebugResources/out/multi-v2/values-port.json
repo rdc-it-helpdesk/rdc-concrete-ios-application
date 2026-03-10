@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.endeldigital.rdcconcrete.app-mergeDebugResources-43:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "D:\\gradle-cache\\caches\\8.9\\transforms\\0242b0c7806f7d366324fbf93ade6a3e\\transformed\\appcompat-1.1.0\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

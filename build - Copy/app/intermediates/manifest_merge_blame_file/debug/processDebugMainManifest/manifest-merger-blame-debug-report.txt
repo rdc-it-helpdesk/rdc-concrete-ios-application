@@ -1,0 +1,320 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.endeldigital.rdcconcrete"
+4    android:versionCode="5"
+5    android:versionName="1.0.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="35" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:11:9-70
+15-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:11:26-68
+16
+17    <uses-feature
+17-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:4:5-6:36
+18        android:name="android.hardware.telephony"
+18-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:5:9-50
+19        android:required="false" />
+19-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:6:9-33
+20
+21    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+21-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:8:5-78
+21-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:8:22-76
+22    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+22-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:9:9-84
+22-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:9:26-82
+23    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+23-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:13:5-80
+23-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:13:22-78
+24    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- <uses-permission android:name="android.permission.INTERNET"/> -->
+24-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:14:5-79
+24-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:14:22-77
+25    <!--
+26 Required to query activities that can process text, see:
+27         https://developer.android.com/training/package-visibility and
+28         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+29
+30         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+31    -->
+32    <queries>
+32-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:71:5-76:15
+33        <intent>
+33-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:72:9-75:18
+34            <action android:name="android.intent.action.PROCESS_TEXT" />
+34-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:73:13-72
+34-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:73:21-70
+35
+36            <data android:mimeType="text/plain" />
+36-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:74:13-50
+36-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:74:19-48
+37        </intent>
+38        <intent>
+38-->[:file_picker] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\file_picker\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:8:9-12:18
+39            <action android:name="android.intent.action.GET_CONTENT" />
+39-->[:file_picker] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\file_picker\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:13-72
+39-->[:file_picker] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\file_picker\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:21-69
+40
+41            <data android:mimeType="*/*" />
+41-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:74:13-50
+41-->D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\android\app\src\main\AndroidManifest.xml:74:19-48
+42        </intent>
+43    </queries>
+44
+45    <permission
+45-->[androidx.core:core:1.16.0] D:\gradle-cache\caches\8.9\transforms\bafa2b805794bb4be865b7d6b2050d04\transformed\core-1.16.0\AndroidManifest.xml:22:5-24:47
+46        android:name="com.endeldigital.rdcconcrete.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+46-->[androidx.core:core:1.16.0] D:\gradle-cache\caches\8.9\transforms\bafa2b805794bb4be865b7d6b2050d04\transformed\core-1.16.0\AndroidManifest.xml:23:9-81
+47        android:protectionLevel="signature" />
+47-->[androidx.core:core:1.16.0] D:\gradle-cache\caches\8.9\transforms\bafa2b805794bb4be865b7d6b2050d04\transformed\core-1.16.0\AndroidManifest.xml:24:9-44
+48
+49    <uses-permission android:name="com.endeldigital.rdcconcrete.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- <uses-permission android:name="android.permission.RECEIVE_SMS" /> -->
+49-->[androidx.core:core:1.16.0] D:\gradle-cache\caches\8.9\transforms\bafa2b805794bb4be865b7d6b2050d04\transformed\core-1.16.0\AndroidManifest.xml:26:5-97
+49-->[androidx.core:core:1.16.0] D:\gradle-cache\caches\8.9\transforms\bafa2b805794bb4be865b7d6b2050d04\transformed\core-1.16.0\AndroidManifest.xml:26:22-94
+50    <!-- <uses-permission android:name="android.permission.READ_SMS" /> -->
+51    <!-- <uses-permission android:name="android.permission.SEND_SMS"/> -->
+52    <!-- <uses-permission android:name="android.permission.RECEIVE_SMS"/> -->
+53    <!-- <uses-permission android:name="android.permission.READ_SMS"/> -->
+54    <application
+55        android:name="android.app.Application"
+56        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+56-->[androidx.core:core:1.16.0] D:\gradle-cache\caches\8.9\transforms\bafa2b805794bb4be865b7d6b2050d04\transformed\core-1.16.0\AndroidManifest.xml:28:18-86
+57        android:debuggable="true"
+58        android:extractNativeLibs="false"
+59        android:icon="@mipmap/ic_launcher"
+60        android:label="RDC_Concrete"
+61        android:usesCleartextTraffic="true" >
+62        <activity
+63            android:name="com.endeldigital.rdcconcrete.MainActivity"
+64            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+65            android:exported="true"
+66            android:hardwareAccelerated="true"
+67            android:launchMode="singleTop"
+68            android:taskAffinity=""
+69            android:theme="@style/LaunchTheme"
+70            android:windowSoftInputMode="adjustResize" >
+71
+72            <!--
+73                 Specifies an Android theme to apply to this Activity as soon as
+74                 the Android process has started. This theme is visible to the user
+75                 while the Flutter UI initializes. After that, this theme continues
+76                 to determine the Window background behind the Flutter UI.
+77            -->
+78
+79            <meta-data
+80                android:name="io.flutter.embedding.engine.FlutterEngine"
+81                android:value="skia" />
+82
+83            <intent-filter>
+84                <action android:name="android.intent.action.MAIN" />
+85
+86                <category android:name="android.intent.category.LAUNCHER" />
+87            </intent-filter>
+88        </activity>
+89        <!--
+90             Don't delete the meta-data below.
+91             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+92        -->
+93        <meta-data
+94            android:name="flutterEmbedding"
+95            android:value="2" />
+96        <!-- <meta-data android:name="flutterEmbedding" android:value="2" /> -->
+97        <!-- android:enableOnBackInvokedCallback="false" -->
+98
+99
+100        <!-- <meta-data android:name="io.flutter.embedding.android.EnableImpeller" -->
+101        <!-- android:value="false" /> -->
+102        <meta-data
+103            android:name="com.google.android.gms.location.fusedLocationProvider"
+104            android:value="true" />
+105
+106        <service
+106-->[:location] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\location\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:9-15:56
+107            android:name="com.lyokone.location.FlutterLocationService"
+107-->[:location] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\location\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:12:13-71
+108            android:enabled="true"
+108-->[:location] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\location\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:13:13-35
+109            android:exported="false"
+109-->[:location] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\location\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:14:13-37
+110            android:foregroundServiceType="location" />
+110-->[:location] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\location\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:15:13-53
+111        <!--
+112           Declares a provider which allows us to store files to share in
+113           '.../caches/share_plus' and grant the receiving action access
+114        -->
+115        <provider
+115-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:13:9-21:20
+116            android:name="dev.fluttercommunity.plus.share.ShareFileProvider"
+116-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:14:13-77
+117            android:authorities="com.endeldigital.rdcconcrete.flutter.share_provider"
+117-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:15:13-74
+118            android:exported="false"
+118-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:16:13-37
+119            android:grantUriPermissions="true" >
+119-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:17:13-47
+120            <meta-data
+120-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:18:13-20:68
+121                android:name="android.support.FILE_PROVIDER_PATHS"
+121-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:19:17-67
+122                android:resource="@xml/flutter_share_file_paths" />
+122-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:20:17-65
+123        </provider>
+124        <!--
+125           This manifest declared broadcast receiver allows us to use an explicit
+126           Intent when creating a PendingItent to be informed of the user's choice
+127        -->
+128        <receiver
+128-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:26:9-32:20
+129            android:name="dev.fluttercommunity.plus.share.SharePlusPendingIntent"
+129-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:27:13-82
+130            android:exported="false" >
+130-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:28:13-37
+131            <intent-filter>
+131-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:29:13-31:29
+132                <action android:name="EXTRA_CHOSEN_COMPONENT" />
+132-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:30:17-65
+132-->[:share_plus] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\share_plus\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:30:25-62
+133            </intent-filter>
+134        </receiver>
+135
+136        <service
+136-->[:geolocator_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\geolocator_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:8:9-12:56
+137            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+137-->[:geolocator_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\geolocator_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:13-77
+138            android:enabled="true"
+138-->[:geolocator_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\geolocator_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:10:13-35
+139            android:exported="false"
+139-->[:geolocator_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\geolocator_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:13-37
+140            android:foregroundServiceType="location" />
+140-->[:geolocator_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\geolocator_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:12:13-53
+141
+142        <activity
+142-->[:url_launcher_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:8:9-11:74
+143            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+143-->[:url_launcher_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:9:13-74
+144            android:exported="false"
+144-->[:url_launcher_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:10:13-37
+145            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+145-->[:url_launcher_android] D:\vaibhavi_mevada\flutter\29_09RDC\New_folder\rdc_concrete\rdc_concrete\rdc_concrete\build\url_launcher_android\intermediates\merged_manifest\debug\processDebugManifest\AndroidManifest.xml:11:13-71
+146
+147        <uses-library
+147-->[androidx.window:window:1.2.0] D:\gradle-cache\caches\8.9\transforms\316ce34c4141c9fcb702e1b226eca009\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+148            android:name="androidx.window.extensions"
+148-->[androidx.window:window:1.2.0] D:\gradle-cache\caches\8.9\transforms\316ce34c4141c9fcb702e1b226eca009\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+149            android:required="false" />
+149-->[androidx.window:window:1.2.0] D:\gradle-cache\caches\8.9\transforms\316ce34c4141c9fcb702e1b226eca009\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+150        <uses-library
+150-->[androidx.window:window:1.2.0] D:\gradle-cache\caches\8.9\transforms\316ce34c4141c9fcb702e1b226eca009\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+151            android:name="androidx.window.sidecar"
+151-->[androidx.window:window:1.2.0] D:\gradle-cache\caches\8.9\transforms\316ce34c4141c9fcb702e1b226eca009\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+152            android:required="false" />
+152-->[androidx.window:window:1.2.0] D:\gradle-cache\caches\8.9\transforms\316ce34c4141c9fcb702e1b226eca009\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+153
+154        <activity
+154-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:23:9-27:75
+155            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+155-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:24:13-93
+156            android:excludeFromRecents="true"
+156-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:25:13-46
+157            android:exported="false"
+157-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:26:13-37
+158            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+158-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:27:13-72
+159        <!--
+160            Service handling Google Sign-In user revocation. For apps that do not integrate with
+161            Google Sign-In, this service will never be started.
+162        -->
+163        <service
+163-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:33:9-37:51
+164            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+164-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:34:13-89
+165            android:exported="true"
+165-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:35:13-36
+166            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+166-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:36:13-107
+167            android:visibleToInstantApps="true" />
+167-->[com.google.android.gms:play-services-auth:21.2.0] D:\gradle-cache\caches\8.9\transforms\35e95acab87bdb8ad415c1712abee210\transformed\jetified-play-services-auth-21.2.0\AndroidManifest.xml:37:13-48
+168
+169        <activity
+169-->[com.google.android.gms:play-services-base:18.5.0] D:\gradle-cache\caches\8.9\transforms\546de0dec3acb4bf72dec73d231a604d\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+170            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+170-->[com.google.android.gms:play-services-base:18.5.0] D:\gradle-cache\caches\8.9\transforms\546de0dec3acb4bf72dec73d231a604d\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+171            android:exported="false"
+171-->[com.google.android.gms:play-services-base:18.5.0] D:\gradle-cache\caches\8.9\transforms\546de0dec3acb4bf72dec73d231a604d\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+172            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+172-->[com.google.android.gms:play-services-base:18.5.0] D:\gradle-cache\caches\8.9\transforms\546de0dec3acb4bf72dec73d231a604d\transformed\jetified-play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+173
+174        <meta-data
+174-->[com.google.android.gms:play-services-basement:18.4.0] D:\gradle-cache\caches\8.9\transforms\dcb8932b929f19aacc8cd827eafa233f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+175            android:name="com.google.android.gms.version"
+175-->[com.google.android.gms:play-services-basement:18.4.0] D:\gradle-cache\caches\8.9\transforms\dcb8932b929f19aacc8cd827eafa233f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+176            android:value="@integer/google_play_services_version" />
+176-->[com.google.android.gms:play-services-basement:18.4.0] D:\gradle-cache\caches\8.9\transforms\dcb8932b929f19aacc8cd827eafa233f\transformed\jetified-play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+177
+178        <provider
+178-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:24:9-32:20
+179            android:name="androidx.startup.InitializationProvider"
+179-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:25:13-67
+180            android:authorities="com.endeldigital.rdcconcrete.androidx-startup"
+180-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:26:13-68
+181            android:exported="false" >
+181-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:27:13-37
+182            <meta-data
+182-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+183                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+183-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+184                android:value="androidx.startup" />
+184-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\gradle-cache\caches\8.9\transforms\d9ecbe72e31537aea49e0c61eb898190\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+185            <meta-data
+185-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+186                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+186-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+187                android:value="androidx.startup" />
+187-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+188        </provider>
+189
+190        <receiver
+190-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+191            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+191-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+192            android:directBootAware="false"
+192-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+193            android:enabled="true"
+193-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+194            android:exported="true"
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+195            android:permission="android.permission.DUMP" >
+195-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+196            <intent-filter>
+196-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+197                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+197-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+197-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+198            </intent-filter>
+199            <intent-filter>
+199-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+200                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+201            </intent-filter>
+202            <intent-filter>
+202-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+203                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+203-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+203-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+204            </intent-filter>
+205            <intent-filter>
+205-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+206                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+206-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+206-->[androidx.profileinstaller:profileinstaller:1.3.1] D:\gradle-cache\caches\8.9\transforms\c42ebe4a989b601d4ff0b3b49b389c4e\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+207            </intent-filter>
+208        </receiver>
+209    </application>
+210
+211</manifest>
