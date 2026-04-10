@@ -997,6 +997,7 @@ class _QaMoScreenState extends State<QaMoScreen> with WidgetsBindingObserver {
               builder: (_) => MOHomePage(
                 sitename: widget.sitename!,
                 locationid: widget.locationid!.toInt(),
+
                 uprofileid: widget.uid,
                 role: role,
                 uname: widget.uname,

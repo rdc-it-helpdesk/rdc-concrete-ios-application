@@ -93,7 +93,7 @@ class _POInsertFormState extends State<POInsertForm> with WidgetsBindingObserver
   final _formKey = GlobalKey<FormState>();
   bool _showAdditionalDetails = false;
   bool _isWithInvoice = false;
-
+  bool get isDoubleChallanMode => _showAdditionalDetails && clickhere;
  // bool _isWithInvoice1 = false;
   String? _fileName;
   String? _fileName1;
@@ -1556,165 +1556,323 @@ class _POInsertFormState extends State<POInsertForm> with WidgetsBindingObserver
 //     }
 //   }
 // Same for openFileChooser1(), just change _fileName1 and base64File2 / withinvoicetwo
+
+  // ==================== COPY FROM HERE ====================
   void validateForm(BuildContext context) {
+    // ==================== EXISTING CHECKS (keep them) ====================
     double availableQty = double.tryParse(widget.availableQty.toString()) ?? 0.0;
+
     if (restrictedItems.contains(widget.itemname) && availableQty < 2000) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Available Quantity is less than 2 MT, please contact MO."), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Available Quantity is less than 2 MT, please contact MO."), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
     if (restrictedItems1.contains(widget.itemname) && availableQty < 20000) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Available Quantity is less than 20 MT, please contact MO."), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Available Quantity is less than 20 MT, please contact MO."), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
+
     if (selectedvehId == null || selectedvehId!.length < 8 || vavailable == false) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please enter a valid Vehicle Number."), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Please enter a valid Vehicle Number."), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
+
     if (selectedUserId == null || selectedUserId == "0") {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please enter a Driver."), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Please enter a Driver."), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
-    String challanNo = _challanNoController.text;
+
+    String challanNo = _challanNoController.text.trim();
     if (challanNo.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please Enter Challan No."), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Please Enter Challan No/Invoice No."), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
-    String netweight = _weightController.text;
+
+    String netweight = _weightController.text.trim();
     if (netweight.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please Enter Valid Weight Data."), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Please Enter Valid Weight Data."), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
+
     if (widget.orderid != null) {
       if (double.tryParse(netweight) != null && double.tryParse(netweight)! > double.parse(widget.netweight1.toString())) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("More than available Qty!"), backgroundColor: Colors.red),
+          const SnackBar(content: Text("More than available Qty!"), backgroundColor: Colors.red),
         );
-        setState(() {
-          _isSubmitting = false; // Reset loading state
-        });
+        setState(() => _isSubmitting = false);
         return;
       }
     }
+
     if (widget.orderid == null) {
       if (ready == "no" || ready.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("vehicle is still Active ! in $activeVehicleSiteName"), backgroundColor: Colors.red),
         );
-        setState(() {
-          _isSubmitting = false; // Reset loading state
-        });
+        setState(() => _isSubmitting = false);
         return;
       }
     }
-    String sechallanone = _additionalChallanNoController.text;
+
+    String sechallanone = _additionalChallanNoController.text.trim();
     if (_isPlusButtonVisible && clickhere && sechallanone.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please Enter Additional Challan No!"), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Please Enter Additional Challan No/Invoice No!"), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
-    String netone = _additionalWeightController.text;
+
+    String netone = _additionalWeightController.text.trim();
     if (_isPlusButtonVisible && clickhere && netone.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please Enter Additional Net!"), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Please Enter Additional Net!"), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
+
     if (widget.orderid != null) {
       if (double.tryParse(netone) != null && double.tryParse(netone)! > double.parse(widget.netweight2.toString())) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("More than available Qty!"), backgroundColor: Colors.red),
+          const SnackBar(content: Text("More than available Qty!"), backgroundColor: Colors.red),
         );
-        setState(() {
-          _isSubmitting = false; // Reset loading state
-        });
+        setState(() => _isSubmitting = false);
         return;
       }
     }
+
     if (sechallanone == challanNo) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Challan No could not be the same!"), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Challan No could not be the same!"), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
-    if (withinvoiceone != 0 && _fileName == null) {
+
+    // ==================== NEW PERFECT INVOICE VALIDATION ====================
+    // When user clicked "Click Here" → BOTH invoices are MANDATORY
+    if (_showAdditionalDetails) {
+      if (_fileName == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Invoice File Required for First Challan!"), backgroundColor: Colors.red),
+        );
+        setState(() => _isSubmitting = false);
+        return;
+      }
+      if (_fileName1 == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Invoice File Required for Second Challan!"), backgroundColor: Colors.red),
+        );
+        setState(() => _isSubmitting = false);
+        return;
+      }
+    }
+    // Normal single challan mode
+    else if (withinvoiceone == 1 && _fileName == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Upload Invoice File!"), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Upload Invoice File!"), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
-    if (clickhere && (netone.isEmpty || netweight.isEmpty || int.tryParse(netone) == null || int.tryParse(netweight) == null ||
-        int.parse(netone) < 1 || int.parse(netweight) < 1)) {
+
+    // Extra safety for second invoice
+    if (withinvoicetwo == 1 && _fileName1 == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("In case of double Net Weight Required!"), backgroundColor: Colors.red),
+        const SnackBar(content: Text("Invoice File Required in Second Challan!"), backgroundColor: Colors.red),
       );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
+      setState(() => _isSubmitting = false);
       return;
     }
-    if (withinvoicetwo != 0 && _fileName1 == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Invoice File Required in Second Challan!"), backgroundColor: Colors.red),
-      );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
-      return;
-    }
-    if (optionalFormflag && (_fileName == null || _fileName1 == null)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Invoice Required in Double Challan case!"), backgroundColor: Colors.red),
-      );
-      setState(() {
-        _isSubmitting = false; // Reset loading state
-      });
-      return;
-    }
-     _submitTransaction(selectedVehicleNumber.toString(), challanNo, netweight, widget.poid.toString(), sechallanone, netone);
+
+    // ==================== FINAL SUBMIT ====================
+    _submitTransaction(
+      selectedVehicleNumber.toString(),
+      challanNo,
+      netweight,
+      widget.poid.toString(),
+      sechallanone,
+      netone,
+    );
   }
+// ==================== COPY TILL HERE ====================
+//   void validateForm(BuildContext context) {
+//     double availableQty = double.tryParse(widget.availableQty.toString()) ?? 0.0;
+//     if (restrictedItems.contains(widget.itemname) && availableQty < 2000) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Available Quantity is less than 2 MT, please contact MO."), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (restrictedItems1.contains(widget.itemname) && availableQty < 20000) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Available Quantity is less than 20 MT, please contact MO."), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (selectedvehId == null || selectedvehId!.length < 8 || vavailable == false) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Please enter a valid Vehicle Number."), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (selectedUserId == null || selectedUserId == "0") {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Please enter a Driver."), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     String challanNo = _challanNoController.text;
+//     if (challanNo.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Please Enter Challan No."), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     String netweight = _weightController.text;
+//     if (netweight.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Please Enter Valid Weight Data."), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (widget.orderid != null) {
+//       if (double.tryParse(netweight) != null && double.tryParse(netweight)! > double.parse(widget.netweight1.toString())) {
+//         ScaffoldMessenger.of(context).showSnackBar(
+//           SnackBar(content: Text("More than available Qty!"), backgroundColor: Colors.red),
+//         );
+//         setState(() {
+//           _isSubmitting = false; // Reset loading state
+//         });
+//         return;
+//       }
+//     }
+//     if (widget.orderid == null) {
+//       if (ready == "no" || ready.isEmpty) {
+//         ScaffoldMessenger.of(context).showSnackBar(
+//           SnackBar(content: Text("vehicle is still Active ! in $activeVehicleSiteName"), backgroundColor: Colors.red),
+//         );
+//         setState(() {
+//           _isSubmitting = false; // Reset loading state
+//         });
+//         return;
+//       }
+//     }
+//     String sechallanone = _additionalChallanNoController.text;
+//     if (_isPlusButtonVisible && clickhere && sechallanone.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Please Enter Additional Challan No!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     String netone = _additionalWeightController.text;
+//     if (_isPlusButtonVisible && clickhere && netone.isEmpty) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Please Enter Additional Net!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (widget.orderid != null) {
+//       if (double.tryParse(netone) != null && double.tryParse(netone)! > double.parse(widget.netweight2.toString())) {
+//         ScaffoldMessenger.of(context).showSnackBar(
+//           SnackBar(content: Text("More than available Qty!"), backgroundColor: Colors.red),
+//         );
+//         setState(() {
+//           _isSubmitting = false; // Reset loading state
+//         });
+//         return;
+//       }
+//     }
+//     if (sechallanone == challanNo) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Challan No could not be the same!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (withinvoiceone != 0 && _fileName == null) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Upload Invoice File!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (clickhere && (netone.isEmpty || netweight.isEmpty || int.tryParse(netone) == null || int.tryParse(netweight) == null ||
+//         int.parse(netone) < 1 || int.parse(netweight) < 1)) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("In case of double Net Weight Required!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (withinvoicetwo != 0 && _fileName1 == null) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Invoice File Required in Second Challan!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//     if (optionalFormflag && (_fileName == null || _fileName1 == null)) {
+//       ScaffoldMessenger.of(context).showSnackBar(
+//         SnackBar(content: Text("Invoice Required in Double Challan case!"), backgroundColor: Colors.red),
+//       );
+//       setState(() {
+//         _isSubmitting = false; // Reset loading state
+//       });
+//       return;
+//     }
+//      _submitTransaction(selectedVehicleNumber.toString(), challanNo, netweight, widget.poid.toString(), sechallanone, netone);
+//   }
 
   @override
   Widget build(BuildContext context) {
@@ -2150,78 +2308,127 @@ class _POInsertFormState extends State<POInsertForm> with WidgetsBindingObserver
                                     },
                                   ),
                                   const SizedBox(height: 10),
-                                  RichText(
-                                    text: TextSpan(
-                                      text: AppLocalizations.of(context)!
-                                          .do_you_have_second_challan_with_same_vehicle,
-                                      style: const TextStyle(color: Colors.black),
-                                      children: [
-                                        if (_isPlusButtonVisible)
+                                  // ==================== COPY FROM HERE ====================
+                                  if (_isPlusButtonVisible)
+                                    RichText(
+                                      text: TextSpan(
+                                        text: AppLocalizations.of(context)!.do_you_have_second_challan_with_same_vehicle,
+                                        style: const TextStyle(color: Colors.black),
+                                        children: [
                                           TextSpan(
                                             text: AppLocalizations.of(context)!.click_Here,
                                             style: const TextStyle(
-                                                color: Colors.blue, fontWeight: FontWeight.bold),
-
+                                              color: Colors.blue,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                             recognizer: TapGestureRecognizer()
                                               ..onTap = () {
-                                                if (_weightController.text.isNotEmpty && double.tryParse(_weightController.text) != null) {
-                                                  double netWeight = double.parse(_weightController.text);
-                                                  if (netWeight > 0) {
-                                                    setState(() {
-                                                      _showAdditionalDetails = !_showAdditionalDetails;
-                                                      clickhere = !clickhere;
-                                                      // NEW: When second challan is enabled, require invoice for it
-                                                      withinvoicetwo = _showAdditionalDetails ? 1 : 0;
-                                                    });
-                                                  } else {
-                                                    ScaffoldMessenger.of(context).showSnackBar(
-                                                      SnackBar(
-                                                        content: Text('Net weight must be greater than 0 to add additional details!'),
-                                                        backgroundColor: Colors.red,
-                                                      ),
-                                                    );
-                                                  }
-                                                } else {
+                                                // Prevent enabling second challan without first weight
+                                                if (_weightController.text.isEmpty ||
+                                                    double.tryParse(_weightController.text) == null ||
+                                                    double.parse(_weightController.text) <= 0) {
                                                   ScaffoldMessenger.of(context).showSnackBar(
-                                                    SnackBar(
-                                                      content: Text('Please enter a valid net weight first!'),
+                                                    const SnackBar(
+                                                      content: Text('Please enter valid Net Weight (> 0) first!'),
                                                       backgroundColor: Colors.red,
                                                     ),
                                                   );
+                                                  return;
                                                 }
+
+                                                setState(() {
+                                                  _showAdditionalDetails = !_showAdditionalDetails;
+                                                  clickhere = _showAdditionalDetails;
+
+                                                  // PERFECT RULE: Double challan = BOTH invoices required
+                                                  if (_showAdditionalDetails) {
+                                                    withinvoiceone = 1;
+                                                    withinvoicetwo = 1;
+                                                  } else {
+                                                    // When turning OFF double challan → respect radio button
+                                                    withinvoiceone = _isWithInvoice ? 1 : 0;
+                                                    withinvoicetwo = 0;
+                                                  }
+                                                });
                                               },
-                                            // recognizer: TapGestureRecognizer()
-                                            //   ..onTap = () {
-                                            //     if (_weightController.text.isNotEmpty &&
-                                            //         double.tryParse(_weightController.text) != null) {
-                                            //       double netWeight = double.parse(_weightController.text);
-                                            //       if (netWeight > 0) {
-                                            //         setState(() {
-                                            //           _showAdditionalDetails = !_showAdditionalDetails;
-                                            //           clickhere = !clickhere;
-                                            //         });
-                                            //       } else {
-                                            //         ScaffoldMessenger.of(context).showSnackBar(
-                                            //           SnackBar(
-                                            //             content: Text(
-                                            //                 'Net weight must be greater than 0 to add additional details!'),
-                                            //             backgroundColor: Colors.red,
-                                            //           ),
-                                            //         );
-                                            //       }
-                                            //     } else {
-                                            //       ScaffoldMessenger.of(context).showSnackBar(
-                                            //         SnackBar(
-                                            //           content: Text('Please enter a valid net weight first!'),
-                                            //           backgroundColor: Colors.red,
-                                            //         ),
-                                            //       );
-                                            //     }
-                                            //   },
                                           ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
+// ==================== COPY TILL HERE ====================
+                                  // if (_isPlusButtonVisible)
+                                  // RichText(
+                                  //   text: TextSpan(
+                                  //     text: AppLocalizations.of(context)!
+                                  //         .do_you_have_second_challan_with_same_vehicle,
+                                  //     style: const TextStyle(color: Colors.black),
+                                  //     children: [
+                                  //       //if (_isPlusButtonVisible)
+                                  //         TextSpan(
+                                  //           text: AppLocalizations.of(context)!.click_Here,
+                                  //           style: const TextStyle(
+                                  //               color: Colors.blue, fontWeight: FontWeight.bold),
+                                  //
+                                  //           recognizer: TapGestureRecognizer()
+                                  //             ..onTap = () {
+                                  //               if (_weightController.text.isNotEmpty && double.tryParse(_weightController.text) != null) {
+                                  //                 double netWeight = double.parse(_weightController.text);
+                                  //                 if (netWeight > 0) {
+                                  //                   setState(() {
+                                  //                     _showAdditionalDetails = !_showAdditionalDetails;
+                                  //                     clickhere = !clickhere;
+                                  //                     // NEW: When second challan is enabled, require invoice for it
+                                  //                     withinvoicetwo = _showAdditionalDetails ? 1 : 0;
+                                  //                   });
+                                  //                 } else {
+                                  //                   ScaffoldMessenger.of(context).showSnackBar(
+                                  //                     SnackBar(
+                                  //                       content: Text('Net weight must be greater than 0 to add additional details!'),
+                                  //                       backgroundColor: Colors.red,
+                                  //                     ),
+                                  //                   );
+                                  //                 }
+                                  //               } else {
+                                  //                 ScaffoldMessenger.of(context).showSnackBar(
+                                  //                   SnackBar(
+                                  //                     content: Text('Please enter a valid net weight first!'),
+                                  //                     backgroundColor: Colors.red,
+                                  //                   ),
+                                  //                 );
+                                  //               }
+                                  //             },
+                                  //           // recognizer: TapGestureRecognizer()
+                                  //           //   ..onTap = () {
+                                  //           //     if (_weightController.text.isNotEmpty &&
+                                  //           //         double.tryParse(_weightController.text) != null) {
+                                  //           //       double netWeight = double.parse(_weightController.text);
+                                  //           //       if (netWeight > 0) {
+                                  //           //         setState(() {
+                                  //           //           _showAdditionalDetails = !_showAdditionalDetails;
+                                  //           //           clickhere = !clickhere;
+                                  //           //         });
+                                  //           //       } else {
+                                  //           //         ScaffoldMessenger.of(context).showSnackBar(
+                                  //           //           SnackBar(
+                                  //           //             content: Text(
+                                  //           //                 'Net weight must be greater than 0 to add additional details!'),
+                                  //           //             backgroundColor: Colors.red,
+                                  //           //           ),
+                                  //           //         );
+                                  //           //       }
+                                  //           //     } else {
+                                  //           //       ScaffoldMessenger.of(context).showSnackBar(
+                                  //           //         SnackBar(
+                                  //           //           content: Text('Please enter a valid net weight first!'),
+                                  //           //           backgroundColor: Colors.red,
+                                  //           //         ),
+                                  //           //       );
+                                  //           //     }
+                                  //           //   },
+                                  //         ),
+                                  //     ],
+                                  //   ),
+                                  // ),
                                   const SizedBox(height: 5),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 8.0, right: 8.0),

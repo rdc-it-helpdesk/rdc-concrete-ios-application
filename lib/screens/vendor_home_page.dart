@@ -1743,7 +1743,7 @@ class _VendorHomePageState extends State<VendorHomePage> {
                                               Row(
                                                 children: [
                                                   const Icon(Icons.currency_rupee, color: Color(0xFF0EB154)),
-                                                  Text('${unitPrice.toStringAsFixed(2)}/kg'),
+                                                  Text('${unitPrice.toStringAsFixed(4)}/kg'),
                                                 ],
                                               ),
                                             ],
