@@ -6,6 +6,10 @@ workflows:
     environment:
       flutter: stable
 
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.vendorapp.rdcconcrete
+
     scripts:
       - flutter pub get
       - flutter build ipa --release --build-name=1.0.0 --build-number=12
